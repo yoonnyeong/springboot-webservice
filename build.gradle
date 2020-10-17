@@ -1,0 +1,37 @@
+buildscript {
+    //전역 변수를 사용하겠다는 의미 ext
+    ext {
+     springBootVersion = '2.3.4.RELEASE'
+    }
+    //어떤 원격저장소에서 받을 것인지
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    //프로젝트 개발에 필요한 의존성을 설정하는 곳
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+//스프링 부트의 의존성을 관리해주는 플러그인
+apply plugin: 'io.spring.dependency-management'
+
+
+group 'com.camilla.study'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframewrok.boot:spring-boot-starter-test')
+}
